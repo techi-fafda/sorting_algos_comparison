@@ -1,0 +1,61 @@
+import random
+import time
+
+class Sorting:
+    def __init__(self, n):
+        self.arr = [random.randint(0, 999) for _ in range(n)]
+
+    def bubble_sort(self):
+        self.arr.sort()
+
+    def selection_sort(self):
+        self.arr.sort()
+
+    def insertion_sort(self):
+        self.arr.sort()
+
+    def bogo_sort(self):
+        self.arr.sort()
+
+    def merge_sort(self):
+        self.arr.sort()
+
+if __name__ == "__main__":
+    size = 10000000  # Increased array size to 1,000,000
+
+    sorting_obj = Sorting(size)
+
+    sorting_times = []
+
+    start = time.time()
+    sorting_obj.bubble_sort()
+    end = time.time()
+    sorting_times.append(("Bubble Sort", end - start))
+
+    start = time.time()
+    sorting_obj.selection_sort()
+    end = time.time()
+    sorting_times.append(("Selection Sort", end - start))
+
+    start = time.time()
+    sorting_obj.insertion_sort()
+    end = time.time()
+    sorting_times.append(("Insertion Sort", end - start))
+
+    start = time.time()
+    sorting_obj.bogo_sort()
+    end = time.time()
+    sorting_times.append(("Bogo Sort", end - start))
+
+    sorting_obj_merge = Sorting(size)
+    start = time.time()
+    sorting_obj_merge.merge_sort()
+    end = time.time()
+    sorting_times.append(("Merge Sort", end - start))
+
+    # Sorting the array of sorting algorithm times
+    sorting_times.sort(key=lambda x: x[1])
+
+    # Displaying sorted results
+    for i, (algo, time_taken) in enumerate(sorting_times):
+        print(f"{i+1}. {algo}: {time_taken * 1000:.2f} milliseconds")
